@@ -25,3 +25,8 @@ TestResults/
 ## Ignore OS generated files
 .DS_Store
 Thumbs.db
+
+[Bb]in/
+[Oo]bj/
+StrykerOutput/
+coverage.cobertura.xml
