@@ -5,20 +5,36 @@ namespace BenchmarkTestProject.Tests
 {
     public class SourceServiceTests
     {
-        [Theory]
-        [InlineData(2, true)]
-        [InlineData(3, true)]
-        [InlineData(4, false)]
-        [InlineData(17, true)]
-        [InlineData(18, false)]
-        [InlineData(1, false)]
-        [InlineData(0, false)]
-        [InlineData(-5, false)]
-        public void IsPrime_ReturnsExpectedResult(int number, bool expected)
+        [Fact]
+        public void Add_ReturnsSumOfTwoPositiveNumbers()
         {
             var service = new SourceService();
-            bool result = service.IsPrime(number);
-            Assert.Equal(expected, result);
+            int result = service.Add(2, 3);
+            Assert.Equal(5, result);
+        }
+
+        [Fact]
+        public void Add_ReturnsSumWhenOneNumberIsNegative()
+        {
+            var service = new SourceService();
+            int result = service.Add(-1, 4);
+            Assert.Equal(3, result);
+        }
+
+        [Fact]
+        public void Add_ReturnsSumWhenBothNumbersAreNegative()
+        {
+            var service = new SourceService();
+            int result = service.Add(-2, -3);
+            Assert.Equal(-5, result);
+        }
+
+        [Fact]
+        public void Add_ReturnsSameNumberWhenAddingZero()
+        {
+            var service = new SourceService();
+            int result = service.Add(7, 0);
+            Assert.Equal(7, result);
         }
     }
 }
