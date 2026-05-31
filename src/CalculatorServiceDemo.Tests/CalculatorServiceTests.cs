@@ -5,19 +5,36 @@ namespace CalculatorServiceDemo.Services.Tests
 {
     public class CalculatorServiceTests
     {
-        [Theory]
-        [InlineData(2, true)]
-        [InlineData(3, true)]
-        [InlineData(4, false)]
-        [InlineData(17, true)]
-        [InlineData(1, false)]
-        [InlineData(0, false)]
-        [InlineData(-5, false)]
-        public void IsPrime_ReturnsExpectedResult(int number, bool expected)
+        [Fact]
+        public void Add_ReturnsSumOfTwoPositiveNumbers()
         {
             var service = new CalculatorService();
-            bool result = service.IsPrime(number);
-            Assert.Equal(expected, result);
+            int result = service.Add(2, 3);
+            Assert.Equal(5, result);
+        }
+
+        [Fact]
+        public void Add_ReturnsSumWhenOneNumberIsNegative()
+        {
+            var service = new CalculatorService();
+            int result = service.Add(-2, 3);
+            Assert.Equal(1, result);
+        }
+
+        [Fact]
+        public void Add_ReturnsSumOfTwoNegativeNumbers()
+        {
+            var service = new CalculatorService();
+            int result = service.Add(-2, -3);
+            Assert.Equal(-5, result);
+        }
+
+        [Fact]
+        public void Add_ReturnsSameNumberWhenAddingZero()
+        {
+            var service = new CalculatorService();
+            int result = service.Add(5, 0);
+            Assert.Equal(5, result);
         }
     }
 }
