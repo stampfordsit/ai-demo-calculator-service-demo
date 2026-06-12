@@ -45,3 +45,8 @@ coverage.cobertura.xml
 [Oo]bj/
 StrykerOutput/
 coverage.cobertura.xml
+
+[Bb]in/
+[Oo]bj/
+StrykerOutput/
+coverage.cobertura.xml
